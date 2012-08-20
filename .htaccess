@@ -3,6 +3,13 @@ AddType application/x-httpd-php .html
 # Tell the origin what json is
 AddType application/json .json
 
+# cache busting http://html5boilerplate.com/docs/cachebusting/
+<IfModule mod_rewrite.c>
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)\.(\d+)\.(js|css|png|jpg|html|gif)$ $1.$3 [L]
+</IfModule>
+
 # Cache everything on for 1 year. 
 # We are making an 24 hour exception for json since we are using it for the daily stats and need that $#!+ fresh
 
@@ -20,7 +27,7 @@ RewriteEngine On
 IndexIgnore *
 Options +FollowSymLinks -Multiviews -Indexes
 RewriteCond %{HTTP_HOST} ^bootstrapcdn\.com$ [NC]
-RewriteRule ^(.*)$ http://www.bootstrapcdn.com/$1 [R=301,L]
+RewriteRule ^(.*)$ http://www.bootstrapcdn.com/$1.081212044408 [R=301,L]
 
 # A million dollars isn't cool, adding your own custom headers is. That's how it went right?
 
