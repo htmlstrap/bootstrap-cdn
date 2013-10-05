@@ -38,14 +38,11 @@ NC='\e[0m'
    "200" \
    "${red}bootstrap.min.css 3.0.0 on the edge is not returning a 200${NC}"
 
- }
 
  # Test 5
    assert_equal "`$Curl -sI https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.js |$Grep HTTP |$Awk {'print $2'}`" \
    "200" \
-   "${red}bootstrap.min.js 3.0.0 on the edge is not returning a 200${NC}${NC}"
-
- }
+   "${red}bootstrap.min.js 3.0.0 on the edge is not returning a 200${NC}"
 
 # Test #
    assert_equal "`$Curl -sI https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css |$Grep HTTP |$Awk {'print $2'}`" \
