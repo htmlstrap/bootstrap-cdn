@@ -20,9 +20,14 @@ yellow='\e[1;33m'
 green='\e[1;32m'
 NC='\e[0m'
 
+# Current Versions
+
+BootstrapV="3.0.0"
+FontAwesomeV="3.2.1"
+
  function run_tests {
 
-## 200 Reposnse Tests
+## 200 OK Reposnse Tests
 # Test 1
    assert_equal "`$Curl -sI http://s3-us-west-1.amazonaws.com/bootstrap-cdn/public/index.html |$Grep HTTP |$Awk {'print $2'}`" \
    "202" \
@@ -33,21 +38,26 @@ NC='\e[0m'
    "200" \
    "${red}bootstrap.no-icons.min.css S3 is not returning a 200${NC}"
 
-# Test 4
+# Test 3
    assert_equal "`$Curl -sI https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css |$Grep HTTP |$Awk {'print $2'}`" \
    "200" \
    "${red}bootstrap.min.css 3.0.0 on the edge is not returning a 200${NC}"
 
 
- # Test 5
-   assert_equal "`$Curl -sI https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.js |$Grep HTTP |$Awk {'print $2'}`" \
+ # Test 4
+   assert_equal "`$Curl -sI https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js |$Grep HTTP |$Awk {'print $2'}`" \
    "200" \
    "${red}bootstrap.min.js 3.0.0 on the edge is not returning a 200${NC}"
 
-# Test #
+# Test 5
    assert_equal "`$Curl -sI https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css |$Grep HTTP |$Awk {'print $2'}`" \
    "200" \
    "${red}bootstrap.no-icons.min.css on the edge is not returning a 200${NC}"
+
+ # Test 6
+   assert_equal "`$Curl -sI https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css |$Grep HTTP |$Awk {'print $2'}`" \
+   "200" \
+   "${red}font-awesome.min.css is not returning a 200${NC}"
 
  }
 
@@ -55,7 +65,7 @@ NC='\e[0m'
 
 
 
-# netdna.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css
+netdna.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css
 # netdna.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css
 
 # netdna.bootstrapcdn.com/bootswatch/3.0.0/amelia/bootstrap.min.css
