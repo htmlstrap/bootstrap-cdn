@@ -72,16 +72,40 @@ BootswatchV="3.0.0"
    "200" \
    "${red}bootstrap-combined.min.css 2.3.2 on the edge is not returning a 200${NC}"
 
+   # Test 9
+   assert_equal "`$Curl -sI  https://netdna.bootstrapcdn.com/font-awesome/3.2.1/font/fontawesome-webfont.ttf |$Grep HTTP |$Awk {'print $2'}`" \
+   "200" \
+   "${red}fontawesome-webfont.ttf 3.2.1 on the edge is not returning a 200${NC}"
+
+   # Test 10
+   assert_equal "`$Curl -sI  https://netdna.bootstrapcdn.com/font-awesome/3.2.1/font/fontawesome-webfont.svg |$Grep HTTP |$Awk {'print $2'}`" \
+   "200" \
+   "${red}fontawesome-webfont.svg 3.2.1 on the edge is not returning a 200${NC}"
+
+   # Test 11
+   assert_equal "`$Curl -sI  https://netdna.bootstrapcdn.com/font-awesome/3.2.1/font/fontawesome-webfont.eot |$Grep HTTP |$Awk {'print $2'}`" \
+   "200" \
+   "${red}fontawesome-webfont.eot 3.2.1 on the edge is not returning a 200${NC}"
+
+   # Test 12
+   assert_equal "`$Curl -sI  https://netdna.bootstrapcdn.com/font-awesome/3.2.1/font/fontawesome-webfont.woff |$Grep HTTP |$Awk {'print $2'}`" \
+   "200" \
+   "${red}fontawesome-webfont.woff 3.2.1 on the edge is not returning a 200${NC}"
+   
+
+   # # Test 9
+   # assert_equal "`for ext in ttf svg eot woff; do curl -sI netdna.bootstrapcdn.com/font-awesome/latest/font/fontawesome-webfont.${ext} | $Grep HTTP |$Awk {'print $2'}; done`" \
+   # "200
+   # 200
+   # 200
+   # 200" \
+   # "${red}${ext} on the edge is not returning a 200${NC}"
+
  }
 
 # #CDN
 
+#Fonts
 
-netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css
-
-# #Fonts
-# for ext in ttf svg eot woff; 
-# 	do curl -I netdna.bootstrapcdn.com/font-awesome/latest/font/fontawesome-webfont.{$ext};
-# done
 	
 source cli-tester.sh

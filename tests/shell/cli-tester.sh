@@ -193,7 +193,7 @@ function finish {
 
   echo " "
   echo " "
-  echo -e "${yellow}Total: `expr $passed + $failed`${NC} ${green}Passed: $passed${NC} ${red}Failed: $failed${NC} ${blue}Duration: ${SECONDS} seconds${NC}"
+  echo -e "${yellow}Total: `expr $passed + $failed`${NC} ${green}Passed: $passed${NC} ${red}Failed: $failed${NC} ${blue}Duration: ${SECONDS} Seconds${NC}"
 
   if [ "$failed" -ne "0" ]; then
     echo " "
