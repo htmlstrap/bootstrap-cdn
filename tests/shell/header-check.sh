@@ -18,12 +18,15 @@ Curl="`/usr/bin/which curl`"
 red='\e[0;31m'
 yellow='\e[1;33m'
 green='\e[1;32m'
+blue='\e[1;34m'
 NC='\e[0m'
+
 
 # Current Versions
 
 BootstrapV="3.0.0"
 FontAwesomeV="3.2.1"
+BootswatchV="3.0.0"
 
  function run_tests {
 
@@ -59,17 +62,22 @@ FontAwesomeV="3.2.1"
    "200" \
    "${red}font-awesome.min.css is not returning a 200${NC}"
 
+   # Test 7
+   assert_equal "`$Curl -sI  https://netdna.bootstrapcdn.com/bootswatch/3.0.0/amelia/bootstrap.min.css |$Grep HTTP |$Awk {'print $2'}`" \
+   "200" \
+   "${red}${NC}"
+
+   # Test 8
+   assert_equal "`$Curl -sI  https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css |$Grep HTTP |$Awk {'print $2'}`" \
+   "200" \
+   "${red}bootstrap-combined.min.css 2.3.2 on the edge is not returning a 200${NC}"
+
  }
 
 # #CDN
 
 
-
-netdna.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css
-# netdna.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css
-
-# netdna.bootstrapcdn.com/bootswatch/3.0.0/amelia/bootstrap.min.css
-# netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css
+netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css
 
 # #Fonts
 # for ext in ttf svg eot woff; 
