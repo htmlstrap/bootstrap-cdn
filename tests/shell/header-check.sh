@@ -33,23 +33,36 @@ NC='\e[0m'
    "200" \
    "${red}bootstrap.no-icons.min.css S3 is not returning a 200${NC}"
 
+# Test 4
+   assert_equal "`$Curl -sI https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css |$Grep HTTP |$Awk {'print $2'}`" \
+   "200" \
+   "${red}bootstrap.min.css 3.0.0 on the edge is not returning a 200${NC}"
+
  }
 
-# #Origins
-# time curl -I www.bootstrapcdn.com
-# time curl -I http://s3-us-west-1.amazonaws.com/bootstrap-cdn/public/index.html
-# time curl -I http://s3-us-west-1.amazonaws.com/bootstrap-cdn/public/bootstrap/3.0.0/css/bootstrap.no-icons.min.css
+ # Test 5
+   assert_equal "`$Curl -sI https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.js |$Grep HTTP |$Awk {'print $2'}`" \
+   "200" \
+   "${red}bootstrap.min.js 3.0.0 on the edge is not returning a 200${NC}${NC}"
+
+ }
+
+# Test #
+   assert_equal "`$Curl -sI https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css |$Grep HTTP |$Awk {'print $2'}`" \
+   "200" \
+   "${red}bootstrap.no-icons.min.css on the edge is not returning a 200${NC}"
+
+ }
 
 # #CDN
-# time curl -I netdna.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css
-# time curl -I netdna.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.js
-# time curl -I netdna.bootstrapcdn.com/bootstrap/latest/css/bootstrap.no-icons.min.css
 
-# time curl -I netdna.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css
-# time curl -I netdna.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css
 
-# time curl -I netdna.bootstrapcdn.com/bootswatch/3.0.0/amelia/bootstrap.min.css
-# time curl -I netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css
+
+# netdna.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css
+# netdna.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css
+
+# netdna.bootstrapcdn.com/bootswatch/3.0.0/amelia/bootstrap.min.css
+# netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css
 
 # #Fonts
 # for ext in ttf svg eot woff; 
