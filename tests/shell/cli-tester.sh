@@ -1,4 +1,5 @@
-#!/bin/bash
+#/bin/bash
+#!/usr/local/bin/bash
 ################################################################################
 # Simple CLI Testing Psudo-Framework
 # > http://mervine.net/simple-cli-testing-framework
@@ -51,7 +52,7 @@
 
 red='\e[0;31m'
 yellow='\e[1;33m'
-green='\E[1;32m'
+green='\e[1;32m'
 NC='\e[0m'
 
 # Progress Variables

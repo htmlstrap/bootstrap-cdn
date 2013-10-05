@@ -1,4 +1,5 @@
-#!/bin/bash
+#/bin/bash
+#!/usr/local/bin/bash
 
 ## AUTHOR: Justin Dorfman (@jdorfman)
 ## DATE: 10-04-201
