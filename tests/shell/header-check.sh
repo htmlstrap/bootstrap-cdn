@@ -92,6 +92,10 @@ BootswatchV="3.0.0"
    "200" \
    "${red}fontawesome-webfont.woff 3.2.1 on the edge is not returning a 200${NC}"
    
+   # Test 13
+   assert_equal "`$Curl -sI  https://netdna.bootstrapcdn.com/data/bootstrapcdn.json |$Grep HTTP |$Awk {'print $2'}`" \
+   "200" \
+   "${red}fontawesome-webfont.woff 3.2.1 on the edge is not returning a 200${NC}"
 
    # # Test 9
    # assert_equal "`for ext in ttf svg eot woff; do curl -sI netdna.bootstrapcdn.com/font-awesome/latest/font/fontawesome-webfont.${ext} | $Grep HTTP |$Awk {'print $2'}; done`" \
