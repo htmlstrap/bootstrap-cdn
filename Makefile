@@ -1,7 +1,7 @@
 FOREVER=./node_modules/.bin/forever
 
-test:
-	./node_modules/.bin/mocha ./tests/*_test.js ./tests/**/*_test.js -R spec
+test: .PHONY
+	./node_modules/.bin/mocha ./test/*_test.js ./test/**/*_test.js -R spec
 
 setup: logs
 	npm install
