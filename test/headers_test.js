@@ -3,14 +3,12 @@ var assert = require('assert');
 
 // TODO: get two commented out paths to pass tests.
 var paths = [
-  //'http://s3-us-west-1.amazonaws.com/bootstrap-cdn/public/index.html',
-  //'http://s3-us-west-1.amazonaws.com/bootstrap-cdn/public/bootstrap/3.0.0/css/bootstrap.no-icons.min.css',
   'http://netdna.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css',
   'http://netdna.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js',
   'http://netdna.bootstrapcdn.com/bootstrap/latest/css/bootstrap.no-icons.min.css',
   'http://netdna.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css',
   'http://netdna.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css',
-  'http://netdna.bootstrapcdn.com/bootswatch/3.0.0/amelia/bootstrap.min.css',
+  'http://netdna.bootstrapcdn.com/bootswatch/3.0.2/amelia/bootstrap.min.css',
   'http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css'
 ];
 

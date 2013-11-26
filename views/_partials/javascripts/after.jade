@@ -22,12 +22,12 @@ script.
 
     function tabAction(ele) {
         var selected = $(ele).attr('href');
-        document.location.href = "/"+(document.location.search ? document.location.search : '')+selected+hash_suffix;
+        document.location.href = document.location.pathname+(document.location.search ? document.location.search : '')+selected+hash_suffix;
         hash = selected;
     }
 
     function tryIt(n) {
-        window.location.href = "/?theme="+n+(hash ? hash+hash_suffix : '');
+        window.location.href = '/bootswatch/'+n+(hash ? (hash+hash_suffix) : '');
     }
 
     function toggleCode(ele,name) {

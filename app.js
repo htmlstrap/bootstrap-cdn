@@ -48,15 +48,17 @@ app.configure(function() {
     app.use(express.methodOverride());
     app.use(app.router);
     app.use(express.static(path.join(__dirname, 'public')));
-
 });
 
 // routes
+var index  = require('./routes').index;
 var extras = require('./routes/extras');
-app.get('/',                require('./routes').index);
-app.get('/extras/popular',  extras.popular);
-app.get('/extras/app',      extras.app);
-app.get('/extras/birthday', extras.birthday);
+
+app.get('/',                  index);
+app.get('/bootswatch/:theme', index);
+app.get('/extras/popular',    extras.popular);
+app.get('/extras/app',        extras.app);
+app.get('/extras/birthday',   extras.birthday);
 
 // redirects
 var redirects = require('./config/_redirects');
