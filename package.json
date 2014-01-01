@@ -19,7 +19,8 @@
     "forever": "~0.10.8",
     "dateformat": "~1.0.6-1.2.3",
     "oauth": "jmervine/node-oauth",
-    "comma-it": "0.0.5"
+    "comma-it": "0.0.5",
+    "winston": "~0.7.2"
   },
   "devDependencies": {
     "mocha": "~1.12.1",

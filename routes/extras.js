@@ -1,43 +1,39 @@
+var OK = 200;
+
 require('js-yaml');
 var oauth   = require('../lib/oauth');
 var commaIt = require('comma-it').commaIt;
 var fs      = require('fs');
 
-function render(template, req, res, data) {
-    var maxSize = 0;
-    try {
-        maxSize   = data.sort(function(a,b) { return b.size-a.size; })[0].size;
-    } catch (e) { }
-    res.render(template, {
-                    title: 'Bootstrap CDN',
-                    theme: req.query.theme,
-                    commaIt: commaIt,
-                    data: data,
-                    maxSize: maxSize,
-                });
-}
-
-function popular(req, res) {
-    if (req.config.stats === "stub") {
-        oauth.fallback(null, '../tests/stubs/popular.json', function(data) {
-            render('extras_popular', req, res, data);
+function popular(locals, callback) {
+    locals.config.extras = 'stub';
+    if (locals.config.extras === 'stub') {
+        console.log('YO YO YO');
+        oauth.fallback(null, '../tests/stubs/popular.json', function fallback(data) {
+            locals.data = data;
+            console.dir(data);
+            callback('extras_popular', locals, OK);
+            return;
         });
     } else {
-        oauth.fetch('/tmp/.popular.json', function (data) {
-            render('extras_popular', req, res, data);
+        oauth.fetch('/tmp/.popular.json', function fetch(data) {
+            locals.data = data;
+            callback('extras_popular', locals, OK);
             if (data && data.length !== 0) {
                 fs.writeFile('/tmp/.popular.json', JSON.stringify({ data: { popularfiles: data } }, null, 2));
             }
+            return;
         });
     }
+    return;
 }
 
-function app(req, res) {
-    render('extras_app', req, res);
+function birthday(locals, callback) {
+    callback('extras_birthday', locals, OK);
 }
 
-function birthday(req, res) {
-    res.render('extras_birthday', { title: 'Bootstrap CDN', theme: req.query.theme });
+function app(locals, callback) {
+    callback('extras_app', locals, OK);
 }
 
 module.exports = {
