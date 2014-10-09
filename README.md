@@ -18,7 +18,11 @@ npm install
 ```
 
 ```sh
+# test with bootlint
 [node] make test run
+
+# test without bootlint
+[node] make tests run
 ```
 
 ### Demonized

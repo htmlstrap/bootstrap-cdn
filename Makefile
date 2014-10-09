@@ -8,8 +8,11 @@ all:
 test:
 	node make test
 
-test-nc:
-	node make test-nc
+tests:
+	node make tests
+
+tests-nc:
+	node make tests-nc
 
 clean:
 	node make clean

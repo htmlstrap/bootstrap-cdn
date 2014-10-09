@@ -13,17 +13,22 @@ var MOCHA = path.join(__dirname, 'node_modules/.bin/mocha');
 (function() {
     cd(rootDir);
 
+    target.test = function() {
+        target.tests();
+        target.bootlint();
+    };
+
     //
     // make test
     //
-    target.test = function() {
+    target.tests = function() {
         exec(MOCHA + ' --timeout 15000 ./tests/*_test.js ./tests/**/*_test.js -R spec');
     };
 
     //
-    // make test-nc
+    // make tests-nc
     //
-    target["test-nc"] = function() {
+    target["tests-nc"] = function() {
         exec(MOCHA + ' --no-colors --timeout 15000 ./tests/*_test.js ./tests/**/*_test.js -R spec');
     };
 
@@ -144,8 +149,9 @@ nginx.conf:
     target.help = function() {
         echo('Available targets:');
         echo('  all         test and run');
-        echo('  test        runs the tests');
-        echo('  test-nc     runs the tests w/o colors');
+        echo('  test        runs the tests and bootlint');
+        echo('  tests       runs the tests');
+        echo('  tests-nc    runs the tests w/o colors');
         echo('  clean       cleanup working directory');
         echo('  run         runs for development mode');
         echo('  start       start application deamonized');
